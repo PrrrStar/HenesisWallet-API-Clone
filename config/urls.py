@@ -18,4 +18,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('api/v1', ApiRoot.as_view(), name=ApiRoot.name),
+    #path('api/v1/products-list/', ProductList.as_view(), name=ProductList.name),
+  
 ]
