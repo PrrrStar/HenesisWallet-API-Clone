@@ -13,5 +13,10 @@ urlpatterns = [
     path('wallets/<masterWalletId>/name', MasterWalletNameUpdate.as_view(), name=MasterWalletNameUpdate.name),
     path('wallets/<masterWalletId>/passphrase', MasterWalletUpdatePassphraseUpdate.as_view(), name=MasterWalletUpdatePassphraseUpdate.name),
     path('wallets/<masterWalletId>/transfer', MasterWalletTransfer.as_view(), name=MasterWalletTransfer.name),
+    path('wallets/<masterWalletId>/contract-call', MasterWalletContractCall.as_view(), name=MasterWalletContractCall.name),
+    path('wallets/<masterWalletId>/contract-call', MasterWalletContractCall.as_view(), name=MasterWalletContractCall.name),
+    path('wallets/<masterWalletId>/batch-transactions', MasterWalletContractCall.as_view(), name=MasterWalletContractCall.name),
+    path('wallets/<masterWalletId>/flush', MasterWalletContractCall.as_view(), name=MasterWalletContractCall.name),
+    path('wallets/<masterWalletId>/transactions', MasterWalletContractCall.as_view(), name=MasterWalletContractCall.name),
     
 ]

@@ -63,3 +63,21 @@ class MasterWalletTransfer(generics.RetrieveUpdateDestroyAPIView):
     serializer_class    = TransactionSerializer
     lookup_field        = 'masterWalletId'
     name                = '마스터 지갑에서 코인/토큰 전송하기'
+
+class MasterWalletContractCall(generics.RetrieveUpdateDestroyAPIView):
+    queryset            = Transaction.objects.all()
+    serializer_class    = TransactionSerializer
+    lookup_field        = 'masterWalletId'
+    name                = '마스터 지갑에서 스마트 컨트랙트 호출하기'
+
+class MasterWalletFlush(generics.RetrieveAPIView):
+    queryset            = Transaction.objects.all()
+    serializer_class    = TransactionSerializer
+    lookup_field        = 'masterWalletId'
+    name                = '사용자 지갑 잔액을 모두 끌어오기'
+
+class MasterWalletFlush(generics.RetrieveUpdateDestroyAPIView):
+    queryset            = Transaction.objects.all()
+    serializer_class    = TransactionSerializer
+    lookup_field        = 'masterWalletId'
+    name                = '사용자 지갑 잔액을 모두 끌어오기'
