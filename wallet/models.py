@@ -67,6 +67,9 @@ class Transaction(models.Model):
     updatedAt               = models.CharField(max_length=255, verbose_name='트랜잭션 변경 시간(ms)')
 
     keyId                   = models.ForeignKey(HenesisKey, on_delete=models.CASCADE, verbose_name='Henesis Key의 ID', db_column='keyId')
+    
+    masterWalletId          = models.ForeignKey(MasterWallet, on_delete=models.CASCADE, verbose_name='마스터 지갑의 ID', db_column='masterWalletId', null=True)
+    userWalletId            = models.ForeignKey(UserWallet, on_delete=models.CASCADE, verbose_name='사용자 지갑의 ID', db_column='userWalletId', null=True)
     signedMultiSigPayloadId = models.ForeignKey('SignedMultiSigPayload', on_delete=models.CASCADE, verbose_name='Account Key로 서명한 트랜잭션 Payload', db_column='signedMultiSigPayloadId')
     rawTransactionId        = models.ForeignKey('RawTransaction', on_delete=models.CASCADE, verbose_name='블록체인에 전파된 트랜잭션', db_column='rawTransactionId')
 
