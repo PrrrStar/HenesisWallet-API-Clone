@@ -1,5 +1,5 @@
-from django.db import models
-
+from django.db  import models
+from django     import forms
 
 class AccountKey(models.Model):
     address                 = models.CharField(max_length=255, verbose_name='Account Key 주소')
@@ -22,6 +22,7 @@ class MasterWallet(models.Model):
     encryptionKey           = models.CharField(max_length=255, verbose_name='암호 키')
     whitelistActivated      = models.BooleanField(verbose_name='출금 주소 화이트리스팅 활성화 유무')
     version                 = models.CharField(max_length= 255, verbose_name='컨트렉트 버전')
+    passphrase              = forms.CharField(widget=forms.PasswordInput)
 
     accountKeyId            = models.ForeignKey(AccountKey, on_delete=models.CASCADE, verbose_name='Henesis Wallet의 Account Key', db_column='accountKeyId')
     transcationId           = models.ForeignKey('Transaction', on_delete=models.CASCADE, verbose_name='지갑 생성 트랜잭션의 ID', db_column='transactionId')
