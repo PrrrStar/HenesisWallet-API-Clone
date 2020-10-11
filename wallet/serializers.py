@@ -30,9 +30,15 @@ class TransactionSerializer(serializers.ModelSerializer):
         view_name='마스터 지갑에서 코인/토큰 전송하기',
         lookup_field = 'masterWalletId'
     )
+    rawTransaction = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='마스터 지갑에서 코인/토큰 전송하기',
+        lookup_field = 'masterWalletId'
+    )
     class Meta:
         model   = Transaction
-        fields  = ['transactionId','blockchain','sender','hash','error','status','createdAt','updatedAt','signedMultiSigPayload',]
+        fields  = ['transactionId','blockchain','sender','hash','error','status','createdAt','updatedAt','signedMultiSigPayload','rawTransaction']
 
 
 class SignedMultiSigPayloadSerializer(serializers.ModelSerializer):
